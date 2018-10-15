@@ -1,0 +1,179 @@
+html{height: 100%;}
+body{margin: 0;height: 100%;background: #fff;}
+#menu{
+    position: absolute;
+    top:0;left:0;
+    z-index:999;
+}
+#menu li {
+    display: inline-block;
+    margin: 10px 0;
+    color: #000;
+    background: rgba(235,235,235, .5);
+}
+#menu li a {
+    /* color: #333; */
+    padding: 9px 18px;
+    display: block;
+    text-decoration: none;
+}
+#menu li.active a {
+    background: rgba(0,0,0, 0.5);
+    color: #fff;
+}
+.text{
+    text-align: center;
+    width:400px;
+    height:50%;
+    position: absolute;
+    top: 0;bottom: 0;left:0;right:0;
+    margin: auto;
+}
+.logo {
+    display: block;
+    margin:0 auto;
+}
+#title-box {
+}
+#sub-titles{
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+#xiahuaxian {
+    border: 1px solid #333;
+}
+#title {
+    font-size: 2.8em;
+    margin:5px 0;
+}
+#sub-title{
+    font-size: 1.2em;
+}
+.tab-ul {
+    margin: .8em 0 .2em 0; 
+}
+.tab-ul li {
+    margin: 0 5px;
+    display: inline-block;
+}
+li.active {
+    color: #0f820c;
+    font-weight: 700;
+}
+.form-box{
+    padding:.3em 0;
+}
+.search{
+    width: 70%;
+    margin-left: 5%;
+    border: 3px solid #0f820c;
+    border-radius: 20px;
+    text-indent: 30px;
+    font-size: 14px;
+    color: #000;
+    height: 40px;
+    line-height: 40px;
+}
+.search, .sstj{
+    display: inline-block;
+}
+.sstj{
+    width: 43px;
+    height: 40px;
+    position: relative;
+    top:-2px;
+    background-image: url(http://www.minzuzhihunyishu.com/static/pc/img/ss.png); 
+    border: none;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+#page2{
+    /* border: 1px solid #f00; */
+    padding:0 2.8em;
+    background: url(../img/bj.jpg);
+}
+#page2 .fp-tableCell{
+
+}
+.fp-slidesNav ul{
+    text-align: center
+}
+.card{
+    /* margin: 10px; */
+    /* border: 1px solid #f00; */
+    padding:10px;
+}
+/* 
+文章卡片
+*/
+.cardImgBox{
+    position: relative;
+}
+.cardImg {
+    width: 100%;
+    max-height: 140px;
+}
+.author{
+    text-align: center;
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    bottom: 0;
+    opacity: 0;
+    color: #fff;
+    width: 100%;
+}
+.showAuthort{
+    animation: showAuthort .7s;
+    animation-fill-mode: forwards
+}
+.hideAuthort {
+    animation: hideAuthort 1s;
+    animation-fill-mode: forwards
+}
+.cardText{
+    text-indent: 2em;
+    display: block;
+    color: #333;
+    background-color: #fdefc2;
+
+}
+.look{
+    background-color: #fdefc2;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5px;
+    color: #666;
+}
+.cardDate, .lookNum{
+    font-size: 12px;
+    height: 35px;
+    line-height: 35px;
+}
+.lookBtn{
+    cursor: pointer;
+    /* float: right; */
+    display: block;
+    padding: 5px 5px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    background: #27ae60;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-transform: capitalize;
+    transition: all 0.30s linear;
+    margin:4px 0;
+    margin-right:15px;
+}
+.lookBtn:hover{
+    color: #27ae60;
+    background: #fff;
+}
+@keyframes showAuthort{
+    to{opacity: 1;}
+}
+@keyframes hideAuthort{
+    to{opacity: 0;}
+}

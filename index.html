@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="static/css/fullpage.min.css" rel="stylesheet">
+    <link href="static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="http://www.minzuzhihunyishu.com/static/pc/css/initialize.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>canvas</title>
+</head>
+<body>
+    <ul id="menu">
+        <li data-menuanchor="firstPage"><a href="#firstPage">首页</a></li>
+        <li data-menuanchor="secondPage"><a href="#secondPage">面对名家</a></li>
+        <li data-menuanchor="3rdPage"><a href="#">关于我们</a></li>
+    </ul>
+    <div id="fullpage">
+            <div class="section active" id="page1">
+                <div class="text">
+                    <img src="static/img/logo.png" alt="" class="logo">
+                    <div id="title-box">
+                        <!-- <p id="sub-titles">中国当代艺术传承创新系列记录片</p>
+                        <div id="xiahuaxian"></div>
+                        <p id="title">袭古创今</p>
+                        <p id="sub-title">用敬业的态度 <span style="display: inline-block;width:2em;"></span> 换取您的尊重</p> -->
+                        <ul class="tab-ul">
+                            <!-- <li class="active">艺术家</li>
+                            <li class="">新闻资讯</li>
+                            <li>面对名家</li> -->
+                        </ul>
+                        <div class="form-box">
+                            <input type="text" class="search" placeholder="输入您想搜索的艺术家">
+                            <img class="sstj" />
+                        </div>      
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="page2">
+                <div class="slide">
+                    <div class="container-full row" id="page2Box" style="margin:0 auto;">
+                        <div class="col-md-3 card" >
+                            <div class="cardImgBox">
+                                <img src="static/img/author.png" class="cardImg" alt="">
+                                <div class="author">曹无:从学习美术到从事美术创作，一直</div>
+                            </div>
+                            <div class="textIndex">
+                                <p class="cardText">人物介绍:从学习美术到从事美术创作，既让我以一个画家的身份，一个教师的身份...</p>
+                                <div class="look">
+                                     <div class="cardDate"><i class="fa fa-calendar" aria-hidden="true"></i>:2018/9/25</div>
+                                     <div class="lookNum"><i class="fa fa-eye" aria-hidden="true"></i>:10.58万</div>
+                                     <a class="lookBtn full-right" >浏览</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" data-anchor="1"></div>
+            </div>
+    </div>
+   <script src="static/js/jq.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="static/js/fullpage.min.js"></script>
+   <script src="static/js/index.js"></script>
+   <script>
+       $(function(){
+            $('#fullpage').fullpage({
+                // navigation: true,    // 右侧导航
+                slidesNavigation: true,
+                controlArrowColor: '#aaa',
+                autoScrolling:true,
+                menu:'#menu',
+                anchors: ['firstPage', 'secondPage'],
+                afterLoad: function(key, inx){
+                    console.log('滚动后回调', key, inx);
+                }
+            });
+        });
+        let arr = new Array();
+        let html = '';
+        for ( let i=0;i<11;i++ ) {
+            arr.push({src: 'static/img/author.png',desc: '曹无:从学习美术到从事美术创作，一直', content: '人物介绍:从学习美术到从事美术创作，一直到有机会担任一点文化行政管理工...', data: '2018/9/25', num: '10.58'});
+            html+=`
+            <div class="col-md-3 card" >
+                <div class="cardImgBox">
+                    <img src="${arr[i].src}" class="cardImg" alt="">
+                    <div class="author">${arr[i].desc}</div>
+                </div>
+                <div class="textIndex">
+                    <p class="cardText">${arr[i].content}</p>
+                    <div class="look">
+                            <div class="cardDate"><i class="fa fa-calendar" aria-hidden="true"></i>:${arr[i].data}</div>
+                            <div class="lookNum"><i class="fa fa-eye" aria-hidden="true"></i>:${arr[i].num}万</div>
+                            <a class="lookBtn full-right" >浏览</a>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+        $('#page2Box').append(html);
+        $('.card').each( (inx, ele) => {
+            let  authort = ele.childNodes[1].childNodes[3];
+            if (authort) {
+                ele.addEventListener('mouseover', () => authort.className = 'author showAuthort')
+                ele.addEventListener('mouseout', () => authort.className = 'author hideAuthort')
+            }
+        } )
+    </script>
+</body>
+</html>
